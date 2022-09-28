@@ -1,25 +1,21 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { Component } from 'react';
+import { Route, Switch } from 'react-router-dom';
+import PersonalForm from './pages/PersonalForm';
+import ProfessionalForm from './pages/ProfessionalForm';
+import FormDataDisplay from './pages/FormDataDisplay';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+class App extends Component {
+  render() {
+    return (
+      <main className="has-background-light my-container">
+        <Switch>
+          <Route exact path="/" component={ PersonalForm } />
+          <Route path="/professionalform" component={ ProfessionalForm } />
+          <Route path="/formdisplay" component={ FormDataDisplay } />
+        </Switch>
+      </main>
+    );
+  }
 }
 
 export default App;
